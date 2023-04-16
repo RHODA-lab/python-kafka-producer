@@ -25,6 +25,7 @@ gCount = 0
 @application.route('/')
 @application.route('/produce')
 def kafka_produce():
+    global gCount
     min = gCount
     max = min + 20
     for i in range(min, max):
