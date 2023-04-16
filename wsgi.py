@@ -36,7 +36,7 @@ def kafka_produce():
         # Wait for any outstanding messages to be delivered and delivery reports to be received
         producer.flush()
     gCount = max
-    return jsonify({'kafka_produce': message})
+    return jsonify({'kafka_produce': 'posted messages'})
 
 
 @application.route('/status')
