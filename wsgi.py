@@ -20,12 +20,13 @@ def delivery_report(err, msg):
     else:
         print(f"Message delivered to {msg.topic()} [{msg.partition()}]")
 
-min = 0
-max = min + 20
+gCount = 0
 
 @application.route('/')
 @application.route('/produce')
 def kafka_produce():
+    min = gCount
+    max = min + 20
     for i in range(min, max):
         # Construct the message to be produced
         message = f"Kafka Test Message {i}".encode("utf-8")
@@ -33,8 +34,7 @@ def kafka_produce():
         producer.produce(topic, key=str(i), value=message, callback=delivery_report)
         # Wait for any outstanding messages to be delivered and delivery reports to be received
         producer.flush()
-    min = max
-    max = min + 20
+    gCount = max
     return jsonify({'kafka_produce': messages})
 
 
