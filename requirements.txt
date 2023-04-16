@@ -1,0 +1,5 @@
+Flask
+gunicorn
+## Other Libraries
+requests
+confluent_kafka
