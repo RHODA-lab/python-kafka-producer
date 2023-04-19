@@ -11,7 +11,8 @@ conf = {"bootstrap.servers": bootstrap_servers}
 
 # Initialize Consumer and subscribe to kafka topic
 producer = Producer(conf)
-topic = "user7-table-changes"
+#topic = "user7-table-changes"
+topic = "veda-user8-topic"
 
 # Define the callback function to handle delivery reports
 def delivery_report(err, msg):
